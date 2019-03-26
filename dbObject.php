@@ -325,7 +325,7 @@ class dbObject {
 		    foreach ($field as $f) {
 			    $this->toSkip[] = $f;
 		    }
-	    } else if($field === false) {
+	    } elseif($field === false) {
 	    	$this->toSkip = array();
 	    } else{
 	    	$this->toSkip[] = $field;
@@ -598,7 +598,7 @@ class dbObject {
                 } 
                 if ($data[$table][$primaryKey] === null) {
                     $data[$name] = null;
-                } else {
+                } else{
                     if ($this->returnType == 'Object') {
                         $item = new $modelName ($data[$table]);
                         $item->returnType = $this->returnType;
@@ -749,7 +749,7 @@ class dbObject {
 
             if (isset ($this->jsonFields) && in_array ($key, $this->jsonFields))
                 $sqlData[$key] = json_encode($value);
-            else if (isset ($this->arrayFields) && in_array ($key, $this->arrayFields))
+            elseif (isset ($this->arrayFields) && in_array ($key, $this->arrayFields))
                 $sqlData[$key] = implode ("|", $value);
             else
                 $sqlData[$key] = $value;

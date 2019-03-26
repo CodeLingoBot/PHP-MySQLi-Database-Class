@@ -2505,11 +2505,10 @@ class MysqliDb
             default:
                 if (is_array ($val))
                     $this->_bindParams ($val);
-                else if ($val === null)
+                elseif ($val === null)
                     $this->_query .= $operator . " NULL";
                 else if ($val != 'DBNULL' || $val == '0')
-                    $this->_query .= $this->_buildPair ($operator, $val);
-        }
+                    $this->_query .= $this->_buildPair ($operator, $val);        }
     }
 }
 
